@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis Exploratorio de Datos &#8212; Violencia de Género - Proyecto Final</title>
+    <title>Introducción &#8212; Violencia de Género - Proyecto Final</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Carga y Exploración Inicial de Datos" href="Main.html" />
+    <link rel="next" title="Análisis Exploratorio de Datos" href="Main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Análisis Exploratorio de Datos
+                    Introducción
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Main.html"><strong>Carga y Exploración Inicial de Datos</strong></a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Main.html"><strong>Análisis Exploratorio de Datos</strong></a></li>
 </ul>
 
     </div>
@@ -368,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Análisis Exploratorio de Datos</h1>
+    <h1>Introducción</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -378,10 +377,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion"><strong>Introducción</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Introducción</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia"><strong>Bibliografía</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias"><strong>Referencias</strong></a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -392,34 +395,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-datos">
-<h1><strong>Análisis Exploratorio de Datos</strong><a class="headerlink" href="#analisis-exploratorio-de-datos" title="Link to this heading">#</a></h1>
-<section id="introduccion">
-<h2><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
-<p>El Análisis Exploratorio de Datos (EDA, por sus siglas en inglés) es una fase fundamental en cualquier proyecto de ciencia de datos, ya que permite comprender la estructura, distribución y calidad de los datos antes de aplicar técnicas de modelado predictivo. En el contexto de la violencia de género, el EDA adquiere una relevancia particular, dado que los datos no solo reflejan patrones estadísticos, sino también realidades sociales complejas y sensibles. Según Tukey (1977), el EDA es “el proceso de descubrir patrones, anomalías y relaciones en los datos que pueden guiar hipótesis y decisiones posteriores” (Tukey, 1977). En este proyecto, el EDA se aplica a un conjunto de datos proporcionado por el Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, que recopila información sobre casos de violencia de género reportados entre los años 2012 y 2022. El objetivo principal es identificar tendencias, patrones y posibles sesgos en los datos que puedan influir en la construcción de modelos de clasificación y regresión para predecir desenlaces graves, como hospitalizaciones o muertes.</p>
-<p>La violencia de género es un problema crítico en Colombia, donde, según el Instituto Nacional de Medicina Legal y Ciencias Forenses (2021), se reportaron más de 40,000 casos de violencia contra la mujer en 2020, con un aumento del 10% en comparación con el año anterior (Instituto Nacional de Medicina Legal y Ciencias Forenses, 2021). Este contexto subraya la importancia de utilizar herramientas analíticas para comprender y abordar este fenómeno de manera efectiva. A través del EDA, se busca no solo preparar los datos para el modelado, sino también generar insights que puedan informar políticas públicas y estrategias de prevención.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<p>El Análisis Exploratorio de Datos (EDA, por sus siglas en inglés) es una fase fundamental en cualquier proyecto de ciencia de datos, ya que permite comprender la estructura, distribución y calidad de los datos antes de aplicar técnicas de modelado predictivo. En el contexto de la violencia de género, el EDA adquiere una relevancia particular, dado que los datos no solo reflejan patrones estadísticos, sino también realidades sociales complejas y sensibles. Según Tukey, el EDA es “el proceso de descubrir patrones, anomalías y relaciones en los datos que pueden guiar hipótesis y decisiones posteriores” <span id="id1">[<a class="reference internal" href="#id9" title="John W. Tukey. Exploratory Data Analysis. Addison-Wesley, 1977.">Tukey, 1977</a>]</span>. En este proyecto, el EDA se aplica a un conjunto de datos proporcionado por el Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, que recopila información sobre casos de violencia de género reportados entre los años 2012 y 2022. El objetivo principal es identificar tendencias, patrones y posibles sesgos en los datos que puedan influir en la construcción de modelos de clasificación y regresión para predecir desenlaces graves, como hospitalizaciones o muertes.</p>
+<p>La violencia de género es un problema crítico en Colombia, donde, según el Instituto Nacional de Medicina Legal y Ciencias Forenses, se reportaron más de 40,000 casos de violencia contra la mujer en 2020, con un aumento del 10% en comparación con el año anterior <span id="id2">[<a class="reference internal" href="#id13" title="Instituto Nacional de Medicina Legal y Ciencias Forenses. Informe forense sobre violencia de género en colombia. 2021. URL: https://www.medicinalegal.gov.co.">de Medicina Legal y Ciencias Forenses, 2021</a>]</span>. Este contexto subraya la importancia de utilizar herramientas analíticas para comprender y abordar este fenómeno de manera efectiva. A través del EDA, se busca no solo preparar los datos para el modelado, sino también generar insights que puedan informar políticas públicas y estrategias de prevención.</p>
 </section>
-<section id="contextualizacion-de-los-datos">
-<h2><strong>Contextualización de los datos</strong><a class="headerlink" href="#contextualizacion-de-los-datos" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="contextualizacion-de-los-datos">
+<h1><strong>Contextualización de los datos</strong><a class="headerlink" href="#contextualizacion-de-los-datos" title="Link to this heading">#</a></h1>
 <p>El conjunto de datos utilizado en este proyecto proviene del Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, una plataforma que recopila y sistematiza información sobre eventos de interés en salud pública, incluidos los casos de violencia de género. Los datos abarcan el período comprendido entre 2012 y 2022 y contienen variables demográficas, clínicas y contextuales relacionadas con las víctimas, los agresores y los eventos de violencia. Entre las variables clave se encuentran la edad, el género, la etnia, el nivel educativo, el tipo de violencia reportada, la relación entre la víctima y el agresor, y el desenlace del caso (hospitalización, muerte, entre otros).</p>
-<p>La violencia de género es un fenómeno multidimensional que afecta desproporcionadamente a las mujeres en Colombia. Según un informe de ONU Mujeres (2020), el 35% de las mujeres en el país ha sufrido algún tipo de violencia física o sexual por parte de su pareja, y el 70% ha experimentado violencia psicológica en algún momento de su vida (ONU Mujeres, 2020). Estos datos resaltan la necesidad de abordar este problema desde una perspectiva integral, utilizando herramientas de análisis de datos para identificar factores de riesgo y diseñar intervenciones efectivas.</p>
-<p>El uso de datos de Sivigila para este proyecto es particularmente relevante, ya que este sistema es una de las principales fuentes de información sobre violencia de género en Colombia. Sin embargo, es importante reconocer las limitaciones inherentes a los datos, como la posible subnotificación de casos debido a barreras culturales, sociales o institucionales. Según un estudio de García-Moreno et al. (2015), la subnotificación de la violencia de género es un problema global, con tasas que pueden superar el 50% en algunos contextos (García-Moreno et al., 2015). Estas consideraciones deben tenerse en cuenta durante el análisis para evitar conclusiones sesgadas o erróneas.</p>
-</section>
+<p>La violencia de género es un fenómeno multidimensional que afecta desproporcionadamente a las mujeres en Colombia. Según un informe de ONU Mujeres (2020), el 35% de las mujeres en el país ha sufrido algún tipo de violencia física o sexual por parte de su pareja, y el 70% ha experimentado violencia psicológica en algún momento de su vida <span id="id3">[<a class="reference internal" href="#id11" title="ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: https://www.unwomen.org.">Mujeres, 2020</a>]</span>. Estos datos resaltan la necesidad de abordar este problema desde una perspectiva integral, utilizando herramientas de análisis de datos para identificar factores de riesgo y diseñar intervenciones efectivas.</p>
+<p>El uso de datos de Sivigila para este proyecto es particularmente relevante, ya que este sistema es una de las principales fuentes de información sobre violencia de género en Colombia. Sin embargo, es importante reconocer las limitaciones inherentes a los datos, como la posible subnotificación de casos debido a barreras culturales, sociales o institucionales. Según un estudio de García-Moreno et al. (2015), la subnotificación de la violencia de género es un problema global, con tasas que pueden superar el 50% en algunos contextos <span id="id4">[<a class="reference internal" href="#id14" title="Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. Revista de Salud Pública Global, 20(3):123–135, 2015.">García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2015</a>]</span>. Estas consideraciones deben tenerse en cuenta durante el análisis para evitar conclusiones sesgadas o erróneas.</p>
 <section id="bibliografia">
 <h2><strong>Bibliografía</strong><a class="headerlink" href="#bibliografia" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Tukey, J. W. (1977). <em>Exploratory Data Analysis</em>. Addison-Wesley.</p></li>
-<li><p>Instituto Nacional de Medicina Legal y Ciencias Forenses. (2021). <em>Forensis 2020: Datos para la vida</em>. Bogotá, Colombia.</p></li>
-<li><p>ONU Mujeres. (2020). Violencia contra las mujeres en Colombia: Un problema persistente. Recuperado de <a class="reference external" href="https://www.unwomen.org">https://www.unwomen.org</a></p></li>
-<li><p>García-Moreno, C., Hegarty, K., d’Oliveira, A. F., Koziol-McLain, J., Colombini, M., &amp; Feder, G. (2015). <em>The health-systems response to violence against women</em>. The Lancet, 385(9977), 1567-1579.</p></li>
-</ol>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Main.html"><strong>Carga y Exploración Inicial de Datos</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Main.html#analisis-de-datos-faltantes"><strong>Análisis de Datos Faltantes</strong></a></li>
-</ul>
+</section>
+<section id="referencias">
+<h2><strong>Referencias</strong><a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id5">
+<div role="list" class="citation-list">
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Instituto Nacional de Medicina Legal y Ciencias Forenses. Informe forense sobre violencia de género en colombia. 2021. URL: <a class="reference external" href="https://www.medicinalegal.gov.co">https://www.medicinalegal.gov.co</a>.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
+<p>Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. <em>Revista de Salud Pública Global</em>, 20(3):123–135, 2015.</p>
+</div>
+<div class="citation" id="id11" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: <a class="reference external" href="https://www.unwomen.org">https://www.unwomen.org</a>.</p>
+</div>
+<div class="citation" id="id9" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">4</a><span class="fn-bracket">]</span></span>
+<p>John W. Tukey. <em>Exploratory Data Analysis</em>. Addison-Wesley, 1977.</p>
+</div>
+</div>
 </div>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -457,7 +470,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Carga y Exploración Inicial de Datos</strong></p>
+        <p class="prev-next-title"><strong>Análisis Exploratorio de Datos</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -477,10 +490,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion"><strong>Introducción</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Introducción</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia"><strong>Bibliografía</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias"><strong>Referencias</strong></a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
