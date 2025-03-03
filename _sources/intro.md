@@ -12,9 +12,6 @@ La violencia de género es un fenómeno multidimensional que afecta desproporcio
 
 El uso de datos de Sivigila para este proyecto es particularmente relevante, ya que este sistema es una de las principales fuentes de información sobre violencia de género en Colombia. Sin embargo, es importante reconocer las limitaciones inherentes a los datos, como la posible subnotificación de casos debido a barreras culturales, sociales o institucionales. Según un estudio de García-Moreno et al. (2015), la subnotificación de la violencia de género es un problema global, con tasas que pueden superar el 50% en algunos contextos {cite:ps}`garcia-moreno2015`. Estas consideraciones deben tenerse en cuenta durante el análisis para evitar conclusiones sesgadas o erróneas.
 
-
-## **Bibliografía**
-## **Referencias**
 ```{bibliography} references.bib
 :style: plain
 :filter: docname in docnames
