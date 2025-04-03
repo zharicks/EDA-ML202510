@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introducción &#8212; Violencia de Género - Proyecto Final</title>
+    <title>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023) &#8212; Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -154,8 +156,8 @@
       
     
     
-    <img src="_static/LogoUN.png" class="logo__image only-light" alt="Violencia de Género - Proyecto Final - Home"/>
-    <script>document.write(`<img src="_static/LogoUN.png" class="logo__image only-dark" alt="Violencia de Género - Proyecto Final - Home"/>`);</script>
+    <img src="_static/LogoUN.png" class="logo__image only-light" alt="Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023) - Home"/>
+    <script>document.write(`<img src="_static/LogoUN.png" class="logo__image only-dark" alt="Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023) - Home"/>`);</script>
   
   
 </a></div>
@@ -176,12 +178,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Introducción
+                    Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="EDA.html"><strong>Análisis Exploratorio de Datos</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modelado.html"><strong>Modelos de Clasificación</strong></a></li>
 </ul>
 
     </div>
@@ -367,7 +370,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción</h1>
+    <h1>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,10 +380,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Introducción</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -391,36 +392,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<h1><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
-<p>El Análisis Exploratorio de Datos (EDA, por sus siglas en inglés) es una fase fundamental en cualquier proyecto de ciencia de datos, ya que permite comprender la estructura, distribución y calidad de los datos antes de aplicar técnicas de modelado predictivo. En el contexto de la violencia de género, el EDA adquiere una relevancia particular, dado que los datos no solo reflejan patrones estadísticos, sino también realidades sociales complejas y sensibles. Según Tukey, el EDA es “el proceso de descubrir patrones, anomalías y relaciones en los datos que pueden guiar hipótesis y decisiones posteriores” <span id="id1">[<a class="reference internal" href="#id9" title="John W. Tukey. Exploratory Data Analysis. Addison-Wesley, 1977.">Tukey, 1977</a>]</span>. En este proyecto, el EDA se aplica a un conjunto de datos proporcionado por el Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, que recopila información sobre casos de violencia de género reportados entre los años 2012 y 2022. El objetivo principal es identificar tendencias, patrones y posibles sesgos en los datos que puedan influir en la construcción de modelos de clasificación y regresión para predecir desenlaces graves, como hospitalizaciones o muertes.</p>
-<p>La violencia de género es un problema crítico en Colombia, donde, según el Instituto Nacional de Medicina Legal y Ciencias Forenses, se reportaron más de 40,000 casos de violencia contra la mujer en 2020, con un aumento del 10% en comparación con el año anterior <span id="id2">[<a class="reference internal" href="#id13" title="Instituto Nacional de Medicina Legal y Ciencias Forenses. Informe forense sobre violencia de género en colombia. 2021. URL: https://www.medicinalegal.gov.co.">de Medicina Legal y Ciencias Forenses, 2021</a>]</span>. Este contexto subraya la importancia de utilizar herramientas analíticas para comprender y abordar este fenómeno de manera efectiva. A través del EDA, se busca no solo preparar los datos para el modelado, sino también generar insights que puedan informar políticas públicas y estrategias de prevención.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="contextualizacion-de-los-datos">
-<h1><strong>Contextualización de los datos</strong><a class="headerlink" href="#contextualizacion-de-los-datos" title="Link to this heading">#</a></h1>
-<p>El conjunto de datos utilizado en este proyecto proviene del Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, una plataforma que recopila y sistematiza información sobre eventos de interés en salud pública, incluidos los casos de violencia de género. Los datos abarcan el período comprendido entre 2012 y 2022 y contienen variables demográficas, clínicas y contextuales relacionadas con las víctimas, los agresores y los eventos de violencia. Entre las variables clave se encuentran la edad, el género, la etnia, el nivel educativo, el tipo de violencia reportada, la relación entre la víctima y el agresor, y el desenlace del caso (hospitalización, muerte, entre otros).</p>
-<p>La violencia de género es un fenómeno multidimensional que afecta desproporcionadamente a las mujeres en Colombia. Según un informe de ONU Mujeres (2020), el 35% de las mujeres en el país ha sufrido algún tipo de violencia física o sexual por parte de su pareja, y el 70% ha experimentado violencia psicológica en algún momento de su vida <span id="id3">[<a class="reference internal" href="#id11" title="ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: https://www.unwomen.org.">Mujeres, 2020</a>]</span>. Estos datos resaltan la necesidad de abordar este problema desde una perspectiva integral, utilizando herramientas de análisis de datos para identificar factores de riesgo y diseñar intervenciones efectivas.</p>
-<p>El uso de datos de Sivigila para este proyecto es particularmente relevante, ya que este sistema es una de las principales fuentes de información sobre violencia de género en Colombia. Sin embargo, es importante reconocer las limitaciones inherentes a los datos, como la posible subnotificación de casos debido a barreras culturales, sociales o institucionales. Según un estudio de García-Moreno et al. (2015), la subnotificación de la violencia de género es un problema global, con tasas que pueden superar el 50% en algunos contextos <span id="id4">[<a class="reference internal" href="#id14" title="Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. Revista de Salud Pública Global, 20(3):123–135, 2015.">García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2015</a>]</span>. Estas consideraciones deben tenerse en cuenta durante el análisis para evitar conclusiones sesgadas o erróneas.</p>
-<div class="docutils container" id="id5">
-<div role="list" class="citation-list">
-<div class="citation" id="id13" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
-<p>Instituto Nacional de Medicina Legal y Ciencias Forenses. Informe forense sobre violencia de género en colombia. 2021. URL: <a class="reference external" href="https://www.medicinalegal.gov.co">https://www.medicinalegal.gov.co</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-para-la-prevencion-de-desenlaces-criticos-en-violencia-de-genero-un-estudio-aplicado-a-datos-colombianos-20182023">
+<h1><strong>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</strong><a class="headerlink" href="#machine-learning-para-la-prevencion-de-desenlaces-criticos-en-violencia-de-genero-un-estudio-aplicado-a-datos-colombianos-20182023" title="Link to this heading">#</a></h1>
+<section id="contextualizacion-de-los-datos">
+<h2><strong>Contextualización de los datos</strong><a class="headerlink" href="#contextualizacion-de-los-datos" title="Link to this heading">#</a></h2>
+<p>El conjunto de datos utilizado en este proyecto proviene del Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, una plataforma que recopila y sistematiza información sobre eventos de interés en salud pública, incluidos los casos de violencia de género. Los datos abarcan el período comprendido entre 2018 y 2023 y contienen variables demográficas, clínicas y contextuales relacionadas con las víctimas, los agresores y los eventos de violencia. Entre las variables clave se encuentran la edad, el género, la etnia, el nivel educativo, el tipo de violencia reportada, la relación entre la víctima y el agresor, y el desenlace del caso (hospitalización, muerte, entre otros).</p>
+<p>La violencia de género es un fenómeno multidimensional que afecta desproporcionadamente a las mujeres en Colombia. Según un informe de ONU Mujeres (2020), el 35% de las mujeres en el país ha sufrido algún tipo de violencia física o sexual por parte de su pareja, y el 70% ha experimentado violencia psicológica en algún momento de su vida <span id="id1">[<a class="reference internal" href="#id9" title="ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: https://www.unwomen.org.">Mujeres, 2020</a>]</span>. Estos datos resaltan la necesidad de abordar este problema desde una perspectiva integral, utilizando herramientas de análisis de datos para identificar factores de riesgo y diseñar intervenciones efectivas.</p>
+<p>El uso de datos de Sivigila para este proyecto es particularmente relevante, ya que este sistema es una de las principales fuentes de información sobre violencia de género en Colombia. Sin embargo, es importante reconocer las limitaciones inherentes a los datos, como la posible subnotificación de casos debido a barreras culturales, sociales o institucionales. Según un estudio de García-Moreno et al. (2015), la subnotificación de la violencia de género es un problema global, con tasas que pueden superar el 50% en algunos contextos <span id="id2">[<a class="reference internal" href="#id12" title="Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. Revista de Salud Pública Global, 20(3):123–135, 2015.">García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2015</a>]</span>. Estas consideraciones deben tenerse en cuenta durante el análisis para evitar conclusiones sesgadas o erróneas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Descripción del proyecto:</strong><br />
+Este proyecto aplica técnicas de Machine Learning para predecir desenlaces graves en casos de violencia de género registrados en Colombia entre 2018 y 2023. Se comparan múltiples algoritmos (árboles, ensambles, SVM, Naive Bayes, etc.) utilizando métricas relevantes como F1-score macro, AUC macro y tiempo de entrenamiento, con el fin de proponer soluciones eficientes para contextos sensibles y de alta prioridad social.</p>
 </div>
-<div class="citation" id="id14" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
+<div class="docutils container" id="id3">
+<div role="list" class="citation-list">
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p>Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. <em>Revista de Salud Pública Global</em>, 20(3):123–135, 2015.</p>
 </div>
-<div class="citation" id="id11" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<div class="citation" id="id9" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
 <p>ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: <a class="reference external" href="https://www.unwomen.org">https://www.unwomen.org</a>.</p>
 </div>
-<div class="citation" id="id9" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">4</a><span class="fn-bracket">]</span></span>
-<p>John W. Tukey. <em>Exploratory Data Analysis</em>. Addison-Wesley, 1977.</p>
 </div>
 </div>
-</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -480,10 +476,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Introducción</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

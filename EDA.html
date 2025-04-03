@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis Exploratorio de Datos &#8212; Violencia de Género - Proyecto Final</title>
+    <title>Análisis Exploratorio de Datos &#8212; Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</title>
   
   
   
@@ -60,7 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'EDA';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Introducción" href="intro.html" />
+    <link rel="next" title="Modelos de Clasificación" href="Modelado.html" />
+    <link rel="prev" title="Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -152,8 +153,8 @@
       
     
     
-    <img src="_static/LogoUN.png" class="logo__image only-light" alt="Violencia de Género - Proyecto Final - Home"/>
-    <script>document.write(`<img src="_static/LogoUN.png" class="logo__image only-dark" alt="Violencia de Género - Proyecto Final - Home"/>`);</script>
+    <img src="_static/LogoUN.png" class="logo__image only-light" alt="Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023) - Home"/>
+    <script>document.write(`<img src="_static/LogoUN.png" class="logo__image only-dark" alt="Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023) - Home"/>`);</script>
   
   
 </a></div>
@@ -174,12 +175,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Introducción
+                    Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Análisis Exploratorio de Datos</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modelado.html"><strong>Modelos de Clasificación</strong></a></li>
 </ul>
 
     </div>
@@ -439,6 +441,12 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-colinealidad-y-eliminacion-de-variables-redundantes"><strong>Análisis de Colinealidad y Eliminación de Variables Redundantes</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proceso-de-eliminacion-de-variables-redundantes"><strong>Proceso de Eliminación de Variables Redundantes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-de-las-variables-eliminadas-y-su-naturaleza"><strong>Revisión de las Variables Eliminadas y su Naturaleza</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-y-conclusion"><strong>Interpretación y Conclusión</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>Conclusiones</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias"><strong>Referencias</strong></a></li>
 </ul>
@@ -456,9 +464,9 @@ document.write(`
 <h1><strong>Análisis Exploratorio de Datos</strong><a class="headerlink" href="#analisis-exploratorio-de-datos" title="Link to this heading">#</a></h1>
 <section id="introduccion">
 <h2><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
-<p>El Análisis Exploratorio de Datos (EDA, por sus siglas en inglés) es una etapa fundamental en la investigación basada en datos, ya que permite comprender la estructura, distribución y relaciones subyacentes en el conjunto de datos antes de aplicar técnicas avanzadas de modelado estadístico o de machine learning. Como destaca Tukey (1977) <span id="id1">[<a class="reference internal" href="intro.html#id9" title="John W. Tukey. Exploratory Data Analysis. Addison-Wesley, 1977.">Tukey, 1977</a>]</span>, el EDA no se limita a resumir la información, sino que busca descubrir patrones, identificar anomalías y formular hipótesis que orienten el análisis posterior. En este estudio, el EDA se enfoca en la información recopilada por el Sistema Nacional de Vigilancia en Salud Pública (Sivigila) sobre violencia de género en Colombia, abarcando exclusivamente casos de mujeres menores de 80 años y restringido al periodo 2018–2023.</p>
+<p>El Análisis Exploratorio de Datos (EDA, por sus siglas en inglés) es una etapa fundamental en la investigación basada en datos, ya que permite comprender la estructura, distribución y relaciones subyacentes en el conjunto de datos antes de aplicar técnicas avanzadas de modelado estadístico o de machine learning. Como destaca <span id="id1">[<a class="reference internal" href="#id14" title="John W. Tukey. Exploratory Data Analysis. Addison-Wesley, 1977.">Tukey, 1977</a>]</span>, el EDA no se limita a resumir la información, sino que busca descubrir patrones, identificar anomalías y formular hipótesis que orienten el análisis posterior. En este estudio, el EDA se enfoca en la información recopilada por el Sistema Nacional de Vigilancia en Salud Pública (Sivigila) sobre violencia de género en Colombia, abarcando exclusivamente casos de mujeres menores de 80 años y restringido al periodo 2018–2023.</p>
 <p>La base de datos integra diversos tipos de incidentes que reflejan la complejidad de la violencia de género, abarcando situaciones de violencia física, psicológica y sexual, entre otras manifestaciones que evidencian las múltiples dimensiones de este problema social y de salud pública. Dado que la información proviene de un sistema de vigilancia, se dispone tanto de variables categóricas, como el tipo de violencia, la región geográfica y la pertenencia étnica, como de variables numéricas, tales como la edad y el número de incidentes reportados.</p>
-<p>Un análisis exploratorio riguroso, como el propuesto por Wickham y Grolemund (2017) <span id="id2">[<a class="reference internal" href="#id5" title="Hadley Wickham and Garrett Grolemund. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. O'Reilly Media, 2017.">Wickham and Grolemund, 2017</a>]</span>, permite identificar variables clave, detectar valores atípicos, gestionar datos faltantes y evaluar correlaciones relevantes entre las variables predictoras y la variable objetivo. En este estudio, el objetivo es extraer las características más significativas asociadas a desenlaces graves (hospitalización o muerte), lo que facilitará la preparación y el posterior desarrollo de modelos predictivos tanto de clasificación—para predecir el desenlace de cada caso—como de regresión, orientados a estimar la influencia de factores temporales y geográficos en la atención médica.</p>
+<p>Un análisis exploratorio riguroso, como el propuesto por <span id="id2">[<a class="reference internal" href="#id11" title="Hadley Wickham and Garrett Grolemund. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. O'Reilly Media, 2017.">Wickham and Grolemund, 2017</a>]</span>, permite identificar variables clave, detectar valores atípicos, gestionar datos faltantes y evaluar correlaciones relevantes entre las variables predictoras y la variable objetivo. En este estudio, el objetivo es extraer las características más significativas asociadas a desenlaces graves (hospitalización o muerte), lo que facilitará la preparación y el posterior desarrollo de modelos predictivos tanto de clasificación—para predecir el desenlace de cada caso—como de regresión, orientados a estimar la influencia de factores temporales y geográficos en la atención médica.</p>
 <p>Finalmente, la transformación y normalización de las variables asegurarán que el conjunto de datos sea adecuado para la aplicación de técnicas de machine learning, garantizando la integridad y robustez de los modelos predictivos desarrollados en esta investigación.</p>
 </section>
 <section id="importacion-de-librerias">
@@ -484,14 +492,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">glob</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
 </pre></div>
 </div>
 </div>
@@ -681,15 +691,12 @@ document.write(`
 
     <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Obtener los top valores más frecuentes antes y después de la imputación</span>
     <span class="n">top_antes</span> <span class="o">=</span> <span class="n">DataAntes</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">Top</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
     <span class="n">top_despues</span> <span class="o">=</span> <span class="n">DataDespues</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">Top</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
 
-    <span class="c1"># Filtrar los datos para incluir solo los top valores más frecuentes</span>
     <span class="n">data_antes_top</span> <span class="o">=</span> <span class="n">DataAntes</span><span class="p">[</span><span class="n">DataAntes</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_antes</span><span class="p">)]</span>
     <span class="n">data_despues_top</span> <span class="o">=</span> <span class="n">DataDespues</span><span class="p">[</span><span class="n">DataDespues</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_despues</span><span class="p">)]</span>
 
-    <span class="c1"># Eliminar el &quot;.0&quot; de los valores en la columna de códigos y reemplazar con nombres de países</span>
     <span class="n">data_antes_top</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">data_antes_top</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span>
         <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
@@ -703,7 +710,6 @@ document.write(`
         <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">CodigosAPaises</span><span class="p">)</span>
     <span class="p">)</span>
 
-    <span class="c1"># Calcular las frecuencias de cada categoría</span>
     <span class="n">counts_antes</span> <span class="o">=</span> <span class="n">data_antes_top</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">counts_despues</span> <span class="o">=</span> <span class="n">data_despues_top</span><span class="p">[</span><span class="n">ColumnaCodPais</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -719,10 +725,10 @@ document.write(`
             <span class="n">x</span><span class="o">=</span><span class="n">counts_antes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
             <span class="n">y</span><span class="o">=</span><span class="n">counts_antes</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
             <span class="n">text</span><span class="o">=</span><span class="n">counts_antes</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-            <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>       <span class="c1"># Ubica el texto en la parte superior de la barra</span>
-            <span class="n">textangle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                 <span class="c1"># Orientación horizontal del texto</span>
-            <span class="n">textfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span><span class="c1"># Color de la fuente en negro</span>
-            <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#9c89b8&#39;</span><span class="p">,</span>      <span class="c1"># Ejemplo de color (puedes cambiarlo según tu paleta)</span>
+            <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>       
+            <span class="n">textangle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                 
+            <span class="n">textfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#9c89b8&#39;</span><span class="p">,</span>      
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Antes&quot;</span>
         <span class="p">),</span>
         <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
@@ -737,7 +743,7 @@ document.write(`
             <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>
             <span class="n">textangle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">textfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
-            <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#5e548e&#39;</span><span class="p">,</span>      <span class="c1"># Otro color para diferenciarlos</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#5e548e&#39;</span><span class="p">,</span>      
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Después&quot;</span>
         <span class="p">),</span>
         <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span>
@@ -823,7 +829,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PlotDateComparisonSubplots</span><span class="p">(</span><span class="n">date_var</span><span class="p">,</span> <span class="n">data_before</span><span class="p">,</span> <span class="n">data_after</span><span class="p">):</span>
 
-    <span class="c1"># Agrupar y contar registros por fecha en cada dataset</span>
     <span class="n">df_before</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">data_before</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">date_var</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Cuenta_Before&#39;</span><span class="p">)</span>
     <span class="p">)</span>
@@ -831,7 +836,6 @@ document.write(`
         <span class="n">data_after</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">date_var</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Cuenta_After&#39;</span><span class="p">)</span>
     <span class="p">)</span>
 
-    <span class="c1"># Convertir a formato datetime si no lo está</span>
     <span class="n">df_before</span><span class="p">[</span><span class="n">date_var</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_before</span><span class="p">[</span><span class="n">date_var</span><span class="p">])</span>
     <span class="n">df_after</span><span class="p">[</span><span class="n">date_var</span><span class="p">]</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_after</span><span class="p">[</span><span class="n">date_var</span><span class="p">])</span>
 
@@ -1030,8 +1034,8 @@ document.write(`
             <span class="n">x</span><span class="o">=</span><span class="n">data_plot</span><span class="p">[</span><span class="n">variable</span><span class="p">],</span>
             <span class="n">nbinsx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
             <span class="n">marker_color</span><span class="o">=</span><span class="n">PurplePalette</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
-            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>   <span class="c1"># Líneas de separación</span>
-            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>           <span class="c1"># Grosor de las líneas</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>   
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>           
             <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Histograma de </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">texttemplate</span><span class="o">=</span><span class="s1">&#39;%</span><span class="si">{y}</span><span class="s1">&#39;</span><span class="p">,</span>
             <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span>
@@ -1054,16 +1058,478 @@ document.write(`
     <span class="p">)</span>
 
     <span class="c1"># Etiquetas de ejes</span>
-    <span class="c1"># - Columna 1 (boxplot)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s1">&#39;Observaciones&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="c1"># - Columna 2 (histograma)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="c1"># Ajustar ángulo de las etiquetas en el histograma</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">tickangle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">AnalisisUnivariadoFechasFusion</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;FEC_NOT&#39;</span><span class="p">):</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+    <span class="n">fecha_limite</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2023-12-31&quot;</span><span class="p">)</span>
+
+    <span class="n">df_line</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
+    <span class="n">df_line</span> <span class="o">=</span> <span class="n">df_line</span><span class="p">[</span><span class="n">df_line</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">fecha_limite</span><span class="p">]</span>
+    <span class="n">df_line</span> <span class="o">=</span> <span class="n">df_line</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">date_col</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+    <span class="n">df_bar</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
+    <span class="n">df_bar</span> <span class="o">=</span> <span class="n">df_bar</span><span class="p">[</span><span class="n">df_bar</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">fecha_limite</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_bar</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_bar</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">df_group</span> <span class="o">=</span> <span class="n">df_bar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+    <span class="n">df_group</span> <span class="o">=</span> <span class="n">df_group</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">BarColors</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">BarColors</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_group</span><span class="p">))]</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+        <span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">subplot_titles</span><span class="o">=</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Distribución de casos diarios por </span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Conteo de casos por año (</span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">),</span>
+        <span class="n">vertical_spacing</span><span class="o">=</span><span class="mf">0.15</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df_line</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df_line</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+            <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">PurplePalette</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Casos diarios&quot;</span>
+        <span class="p">),</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df_group</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df_group</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">df_group</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+            <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Casos por año&quot;</span>
+        <span class="p">),</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Análisis Univariado de </span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mf">0.98</span><span class="p">,</span>
+            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="s1">&#39;xanchor&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;yanchor&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+        <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span>
+        <span class="n">title_text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Fecha (</span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span>
+        <span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;Cantidad de Casos&quot;</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span>
+        <span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;Año&quot;</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span>
+        <span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;Cantidad de Casos&quot;</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">AnalisisUnivariadoVariable</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">ver</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#3F007D&quot;</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">var</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La columna &#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&#39; no existe en el DataFrame.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">serie</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">serie</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No hay datos válidos para la variable &#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;ANO&quot;</span><span class="p">:</span>
+        <span class="c1"># Bar chart discreto por año</span>
+        <span class="n">df_agg</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df_agg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df_agg</span><span class="p">[</span><span class="n">var</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df_agg</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Frecuencia del Año&quot;</span><span class="p">,</span>
+            <span class="n">xaxis_title</span><span class="o">=</span><span class="n">var</span><span class="p">,</span>
+            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Frecuencia&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;sem_ges&quot;</span><span class="p">:</span>
+        <span class="n">serie_ges</span> <span class="o">=</span> <span class="n">serie</span><span class="p">[</span><span class="n">serie</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">serie_ges</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No hay valores &gt; 0 para &#39;sem_ges&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">serie_ges</span><span class="p">,</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">xbins</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">46</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+        <span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Histograma Semanas de Gestación&quot;</span><span class="p">,</span>
+            <span class="n">xaxis_title</span><span class="o">=</span><span class="n">var</span><span class="p">,</span>
+            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Frecuencia&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;EDAD&quot;</span> <span class="ow">and</span> <span class="n">ver</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">999</span><span class="p">]</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;0-5&quot;</span><span class="p">,</span> <span class="s2">&quot;6-10&quot;</span><span class="p">,</span> <span class="s2">&quot;11-15&quot;</span><span class="p">,</span> <span class="s2">&quot;16-20&quot;</span><span class="p">,</span> <span class="s2">&quot;21-25&quot;</span><span class="p">,</span> <span class="s2">&quot;26-30&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;31-35&quot;</span><span class="p">,</span> <span class="s2">&quot;36-40&quot;</span><span class="p">,</span> <span class="s2">&quot;41-45&quot;</span><span class="p">,</span> <span class="s2">&quot;46-50&quot;</span><span class="p">,</span> <span class="s2">&quot;51-55&quot;</span><span class="p">,</span> <span class="s2">&quot;56-60&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;61-65&quot;</span><span class="p">,</span> <span class="s2">&quot;66-70&quot;</span><span class="p">,</span> <span class="s2">&quot;71-75&quot;</span><span class="p">,</span> <span class="s2">&quot;76-80&quot;</span><span class="p">,</span> <span class="s2">&quot;80+&quot;</span>
+        <span class="p">]</span>
+        <span class="n">cat_edad</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df_edad</span> <span class="o">=</span> <span class="n">cat_edad</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df_edad</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;grupo_edad&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df_edad</span><span class="p">[</span><span class="s1">&#39;grupo_edad&#39;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df_edad</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Distribución de Edad por rangos de edad&quot;</span><span class="p">,</span>
+            <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Grupo de edad&quot;</span><span class="p">,</span>
+            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Frecuencia&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;EDAD&quot;</span> <span class="ow">and</span> <span class="n">ver</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">999</span><span class="p">]</span>  
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;Infancia&quot;</span><span class="p">,</span> <span class="s2">&quot;Niñez&quot;</span><span class="p">,</span> <span class="s2">&quot;Adolescencia&quot;</span><span class="p">,</span> <span class="s2">&quot;Adultez Temprana&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Adultez Media&quot;</span><span class="p">,</span> <span class="s2">&quot;Adultez Avanzada&quot;</span>
+        <span class="p">]</span>
+        <span class="n">cat_edad</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+        <span class="n">df_edad</span> <span class="o">=</span> <span class="n">cat_edad</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>  
+        <span class="n">df_edad</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ciclo_vital&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>  
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df_edad</span><span class="p">[</span><span class="s1">&#39;ciclo_vital&#39;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df_edad</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Distribución de Edad por Ciclo Vital&quot;</span><span class="p">,</span>
+            <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Ciclo Vital&quot;</span><span class="p">,</span>
+            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Frecuencia&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;DiferenciaDias&quot;</span><span class="p">:</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;DiferenciaDias&#39;</span><span class="p">],</span> 
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;DiferenciaDias&#39;</span><span class="p">,</span>      
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>  
+            <span class="n">boxmean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>               
+        <span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Boxplot de DiferenciaDias&quot;</span><span class="p">,</span>  
+            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Diferencia en días&quot;</span><span class="p">,</span>   
+            <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;DiferenciaDias&quot;</span><span class="p">,</span>       
+            <span class="n">template</span><span class="o">=</span><span class="s2">&quot;plotly_white&quot;</span><span class="p">,</span>            
+            <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                   
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">serie</span><span class="p">,</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">))</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Histograma de </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">xaxis_title</span><span class="o">=</span><span class="n">var</span><span class="p">,</span>
+            <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Frecuencia&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span>
+        <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span>
+        <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GrupoPoblacionalDesc</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;GP_DISCAPA&quot;</span><span class="p">:</span> <span class="s2">&quot;Personas en condición de discapacidad&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_DESPLAZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Desplazados&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_MIGRANT&quot;</span><span class="p">:</span> <span class="s2">&quot;Migrantes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_CARCELA&quot;</span><span class="p">:</span> <span class="s2">&quot;Personas privadas de la libertad&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_GESTAN&quot;</span><span class="p">:</span> <span class="s2">&quot;Gestantes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_INDIGEN&quot;</span><span class="p">:</span> <span class="s2">&quot;Indígenas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_POBICFB&quot;</span><span class="p">:</span> <span class="s2">&quot;Población infantil a cargo del ICBF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_MAD_COM&quot;</span><span class="p">:</span> <span class="s2">&quot;Madres comunitarias&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_DESMOVI&quot;</span><span class="p">:</span> <span class="s2">&quot;Desmovilizados&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_PSIQUIA&quot;</span><span class="p">:</span> <span class="s2">&quot;Personas en centros psiquiátricos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_VIC_VIO&quot;</span><span class="p">:</span> <span class="s2">&quot;Víctimas de violencia armada&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GP_OTROS&quot;</span><span class="p">:</span>   <span class="s2">&quot;Otros grupos poblacionales&quot;</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">AnalisisGruposPoblacionalesLogY_Desc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">gp_cols</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">gp_cols</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">gp_cols</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;GP_DISCAPA&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_DESPLAZ&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_MIGRANT&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_CARCELA&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;GP_GESTAN&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_INDIGEN&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_POBICFB&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_MAD_COM&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;GP_DESMOVI&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_PSIQUIA&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_VIC_VIO&quot;</span><span class="p">,</span> <span class="s2">&quot;GP_OTROS&quot;</span>
+        <span class="p">]</span>
+
+    <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">gp_cols</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La columna &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; no existe en el DataFrame.&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="n">count_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">col</span><span class="p">,</span> <span class="n">count_1</span><span class="p">))</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">col_code</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">]</span>
+        <span class="n">col_count</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
+
+        <span class="n">desc</span> <span class="o">=</span> <span class="n">GrupoPoblacionalDesc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col_code</span><span class="p">,</span> <span class="n">col_code</span><span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">col_code</span><span class="p">],</span>        
+            <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">col_count</span><span class="p">],</span>       
+            <span class="n">name</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>           <span class="c1"># Diccionario de mapeos para las variables categóricas</span>
+<span class="n">MappingAll</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;CON_FIN&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Vivo&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Muerto&quot;</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;No sabe/no responde&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;TIP_SS&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;P&quot;</span><span class="p">:</span> <span class="s2">&quot;Excepción&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;Contributivo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="s2">&quot;No asegurado&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;Especial&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="s2">&quot;Subsidiado&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="s2">&quot;Indeterminado/pendiente&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;PER_ETN&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Indígena&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Romano/Gitano&quot;</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Raizal&quot;</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Palenquero&quot;</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Negro/Mulato/Afrocolombiano&quot;</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Otro&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Desenlace_Grave&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Vivo (hospitalizado)&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Murió&quot;</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Vivo (no hospitalizado)&quot;</span><span class="p">,</span>
+        <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;No sabe/no responde&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;PAC_HOS&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Hospitalizado&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;No hospitalizado&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;estrato&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Estrato 1&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Estrato 2&quot;</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Estrato 3&quot;</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Estrato 4&quot;</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Estrato 5&quot;</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Estrato 6&quot;</span>
+<span class="p">}}</span>
+
+<span class="k">def</span> <span class="nf">AnalisisVariableCategMapeada</span><span class="p">(</span>
+    <span class="n">Data</span><span class="p">,</span>
+    <span class="n">var</span><span class="p">,</span>
+    <span class="n">ver</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="k">if</span> <span class="n">ver</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">Data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;CBMTE&#39;</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;0000&#39;</span><span class="p">]</span>
+        <span class="n">cie10_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;R571&quot;</span><span class="p">:</span> <span class="s2">&quot;Shock hipovolémico&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;R456&quot;</span><span class="p">:</span> <span class="s2">&quot;Violencia física&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;9999&quot;</span><span class="p">:</span> <span class="s2">&quot;Desconocido&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;I469&quot;</span><span class="p">:</span> <span class="s2">&quot;Paro cardíaco, no especificado&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;8888&quot;</span><span class="p">:</span> <span class="s2">&quot;No reconocido&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;E43X&quot;</span><span class="p">:</span> <span class="s2">&quot;Desnutrición severa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;R090&quot;</span><span class="p">:</span> <span class="s2">&quot;Asfixia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;A419&quot;</span><span class="p">:</span> <span class="s2">&quot;Sepsis no especificada&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;R98X&quot;</span><span class="p">:</span> <span class="s2">&quot;Muerte sin asistencia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;J960&quot;</span><span class="p">:</span> <span class="s2">&quot;Insuficiencia respiratoria aguda&quot;</span>
+<span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">var</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La columna &#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&#39; no existe en el DataFrame.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">serie</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">serie</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No hay datos válidos para la variable &#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">MappingAll</span><span class="p">:</span>
+        <span class="n">map_dict</span> <span class="o">=</span> <span class="n">MappingAll</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+        <span class="n">serie_mapped</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">map_dict</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">serie</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">serie_mapped</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="n">df_count</span> <span class="o">=</span> <span class="n">serie_mapped</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">df_count</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;categoria&quot;</span><span class="p">,</span> <span class="s2">&quot;frecuencia&quot;</span><span class="p">]</span>
+    <span class="n">df_count</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;frecuencia&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">if</span> <span class="n">ver</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+      <span class="n">df_count</span><span class="p">[</span><span class="s2">&quot;categoria&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_count</span><span class="p">[</span><span class="s2">&quot;categoria&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">cie10_mapping</span><span class="p">)</span>
+      <span class="n">df_count</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+      <span class="n">angle</span><span class="o">=-</span><span class="mi">45</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Distribución de </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+        <span class="n">df_count</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;categoria&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;frecuencia&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;categoria&quot;</span><span class="p">,</span>  
+        <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">PurplePalette</span><span class="p">,</span>
+        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;frecuencia&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+        <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span>
+        <span class="n">title_text</span><span class="o">=</span><span class="n">var</span><span class="p">,</span>
+        <span class="n">categoryorder</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span>
+        <span class="n">categoryarray</span><span class="o">=</span><span class="n">df_count</span><span class="p">[</span><span class="s1">&#39;categoria&#39;</span><span class="p">],</span>
+        <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span>
+        <span class="n">tickangle</span><span class="o">=</span><span class="n">angle</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span>
+        <span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span>   
+        <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">BarColors</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">BarColors</span><span class="p">)],</span>
+            <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="p">[</span><span class="n">col_count</span><span class="p">],</span>
+            <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span>
+        <span class="p">))</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;Pertenencia a Grupos Poblacionales&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="s1">&#39;xanchor&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;yanchor&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Grupos Poblacionales (código)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Cantidad de Víctimas&quot;</span><span class="p">,</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">1300</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+        <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span>  
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span>
+        <span class="n">categoryorder</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span>
+        <span class="n">categoryarray</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span>
+        <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -4891,7 +5357,7 @@ if (outputEl) {{
 </div>
 <section id="analisis-de-las-variables-sem-ges-cbmte-y-fec-con">
 <h4><strong>Análisis de las variables: <code class="docutils literal notranslate"><span class="pre">sem_ges</span></code>, <code class="docutils literal notranslate"><span class="pre">CBMTE</span></code> y <code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code></strong><a class="headerlink" href="#analisis-de-las-variables-sem-ges-cbmte-y-fec-con" title="Link to this heading">#</a></h4>
-<p>En el análisis de datos, es común considerar la eliminación de filas con valores faltantes cuando estos representan menos del 1% del total de registros, ya que su impacto en el análisis es mínimo y no justifica la aplicación de técnicas de imputación más complejas [Little and Rubin, 2019, Rubin, 1976]. Este umbral del 1% se utiliza ampliamente en la práctica, ya que permite mantener la integridad del dataset sin afectar significativamente su tamaño o representatividad.</p>
+<p>En el análisis de datos, es común considerar la eliminación de filas con valores faltantes cuando estos representan menos del 1% del total de registros, ya que su impacto en el análisis es mínimo y no justifica la aplicación de técnicas de imputación más complejas <span id="id3">[<a class="reference internal" href="#id12" title="Roderick J. A. Little and Donald B. Rubin. Statistical Analysis with Missing Data. Wiley, 2019.">Little and Rubin, 2019</a>]</span>.  Este umbral del 1% se utiliza ampliamente en la práctica, ya que permite mantener la integridad del dataset sin afectar significativamente su tamaño o representatividad.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VarsToCheck</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sem_ges&#39;</span><span class="p">,</span> <span class="s1">&#39;CBMTE&#39;</span><span class="p">,</span> <span class="s1">&#39;FEC_CON&#39;</span><span class="p">]</span>
@@ -5102,7 +5568,7 @@ if (outputEl) {{
 <section id="analisis-de-la-fecha-de-inicio-de-sintomas-ini-sin">
 <h4><strong>Análisis de la fecha de Inicio de Síntomas (<code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>)</strong><a class="headerlink" href="#analisis-de-la-fecha-de-inicio-de-sintomas-ini-sin" title="Link to this heading">#</a></h4>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>, que registra la fecha de inicio de síntomas (en este caso, de violencia), presentaba un <strong>5.67%</strong> de valores faltantes. Dado que esta variable está relacionada con eventos temporales clave, como la fecha de consulta (<code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code>), la fecha de notificación (<code class="docutils literal notranslate"><span class="pre">FEC_NOT</span></code>), la fecha de hospitalización (<code class="docutils literal notranslate"><span class="pre">FEC_HOS</span></code>) y la fecha de defunción (<code class="docutils literal notranslate"><span class="pre">FEC_DEF</span></code>), es fundamental que la imputación respete la línea temporal de los eventos. Según la literatura, en contextos donde las variables están interrelacionadas temporalmente, es crucial mantener un orden lógico en la imputación para evitar inconsistencias en los datos [Little and Rubin, 2019].</p>
-<p>En este caso, el inicio de síntomas (<code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>) debe ocurrir antes que cualquier otra fecha relacionada con la atención médica o el desenlace del caso. Por lo tanto, se decidió calcular la diferencia entre la fecha de inicio de síntomas y la fecha de consulta (<code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code>), ya que esta es la más cercana en el orden lógico de eventos. Luego, se imputaron los valores faltantes en <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code> utilizando la mediana de estas diferencias. La <strong>mediana</strong> es una medida robusta que minimiza el impacto de valores atípicos, lo que la hace adecuada para este tipo de imputación [Rubin, 1976].</p>
+<p>En este caso, el inicio de síntomas (<code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>) debe ocurrir antes que cualquier otra fecha relacionada con la atención médica o el desenlace del caso. Por lo tanto, se decidió calcular la diferencia entre la fecha de inicio de síntomas y la fecha de consulta (<code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code>), ya que esta es la más cercana en el orden lógico de eventos. Luego, se imputaron los valores faltantes en <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code> utilizando la mediana de estas diferencias. La <strong>mediana</strong> es una medida robusta que minimiza el impacto de valores atípicos, lo que la hace adecuada para este tipo de imputación <span id="id4">[<a class="reference internal" href="#id13" title="Donald B. Rubin. Inference and missing data. Biometrika, 63(3):581–592, 1976.">Rubin, 1976</a>]</span>.</p>
 <p>Este enfoque garantizó que los valores imputados en <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code> respetaran la línea temporal del dataset, asegurando que la fecha de inicio de síntomas siempre fuera anterior a las fechas de consulta, notificación, hospitalización o defunción. Además, al utilizar la mediana, se redujo el riesgo de introducir sesgos o distorsiones en los datos, lo que es crucial para mantener la integridad del análisis.</p>
 <p>Inicialmente, se verificó que las variables <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>(fecha de inicio de síntomas) y <code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code> (fecha de consulta) estuvieran en el formato correcto (datetime), asegurando que no hubiera inconsistencias en el tipo de datos. Además, se realizó una copia del dataset antes de proceder con la imputación, con el fin de conservar la integridad del dataset original hasta confirmar que la imputación se ejecutó de manera exitosa y correcta.</p>
 <p>Se calculó la cantidad de valores faltantes en <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>, la cual resultó igual a <strong>33,001 registros</strong>. Posteriormente, se confirmó que no hubiera casos en los que la fecha de inicio de síntomas (<code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>) fuera posterior a la fecha de consulta (<code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code>), ya que esto violaría el orden lógico de los eventos. Esta verificación fue crucial para garantizar que los datos fueran coherentes antes de proceder con la imputación.</p>
@@ -7879,14 +8345,14 @@ if (outputEl) {{
 </section>
 <section id="justificacion-y-relevancia">
 <h3><strong>Justificación y Relevancia</strong><a class="headerlink" href="#justificacion-y-relevancia" title="Link to this heading">#</a></h3>
-<p>La creación de la variable <code class="docutils literal notranslate"><span class="pre">Desenlace_Grave</span></code> es fundamental para el análisis de la violencia de género, ya que permite identificar y priorizar los casos más graves, como hospitalizaciones y muertes. Según Campbell [Campbell, Webster, Koziol-McLain, Block, Campbell, Curry, Gary, Glass, McFarlane, Sachs, and others, 2003], la evaluación del riesgo en casos de violencia de género debe incluir indicadores claros de desenlaces graves, como la hospitalización y la mortalidad, para diseñar intervenciones efectivas. Además, García-Moreno [García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2005], destacan que la identificación temprana de casos de alto riesgo es clave para prevenir desenlaces fatales y mejorar la atención a las víctimas.</p>
-<p>Esta variable no solo servirá como la variable objetivo en los modelos predictivos, sino que también proporcionará una base sólida para la toma de decisiones en políticas públicas y estrategias de intervención. Como señala Heise y García-Moreno [García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2005, Heise and Garcia-Moreno, 2002], la priorización de recursos en casos de violencia de género puede salvar vidas y reducir los costos sociales y económicos asociados.</p>
+<p>La creación de la variable <code class="docutils literal notranslate"><span class="pre">Desenlace_Grave</span></code> es fundamental para el análisis de la violencia de género, ya que permite identificar y priorizar los casos más graves, como hospitalizaciones y muertes. Según Campbell <span id="id5">[<a class="reference internal" href="#id20" title="Jacquelyn C Campbell, Daniel Webster, Jane Koziol-McLain, Carolyn R Block, Doris W Campbell, Mary Ann Curry, Faye Gary, Nancy Glass, Judith McFarlane, Carolyn Sachs, and others. Risk factors for femicide in abusive relationships: results from a multisite case control study. American Journal of Public Health, 93(7):1089–1097, 2003.">Campbell, Webster, Koziol-McLain, Block, Campbell, Curry, Gary, Glass, McFarlane, Sachs, and others, 2003</a>]</span>, la evaluación del riesgo en casos de violencia de género debe incluir indicadores claros de desenlaces graves, como la hospitalización y la mortalidad, para diseñar intervenciones efectivas. Además, García-Moreno <span id="id6">[<a class="reference internal" href="#id21" title="Claudia García-Moreno, Henrica AFM Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Who multi-country study on women’s health and domestic violence against women. World Health Organization, 2005. URL: https://www.who.int.">García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2005</a>]</span>, destacan que la identificación temprana de casos de alto riesgo es clave para prevenir desenlaces fatales y mejorar la atención a las víctimas.</p>
+<p>Esta variable no solo servirá como la variable objetivo en los modelos predictivos, sino que también proporcionará una base sólida para la toma de decisiones en políticas públicas y estrategias de intervención. Como señala Heise <span id="id7">[<a class="reference internal" href="#id22" title="Lori Heise and Claudia Garcia-Moreno. Violence by intimate partners. World report on violence and health, 1:87–121, 2002.">Heise and Garcia-Moreno, 2002</a>]</span>, la priorización de recursos en casos de violencia de género puede salvar vidas y reducir los costos sociales y económicos asociados.</p>
 </section>
 </section>
 <section id="analisis-de-valores-atipicos">
 <h2><strong>Análisis de Valores Atípicos</strong><a class="headerlink" href="#analisis-de-valores-atipicos" title="Link to this heading">#</a></h2>
 <p>En el análisis de datos, los valores atípicos son observaciones que se desvían notablemente del resto de la distribución y pueden distorsionar tanto las estadísticas descriptivas como los modelos predictivos. Estos valores extremos pueden surgir por errores en la entrada de datos, problemas en la medición o, en algunos casos, pueden representar fenómenos genuinamente inusuales.</p>
-<p>La identificación de valores atípicos se realiza comúnmente mediante técnicas gráficas, como los diagramas de caja, que utilizan los bigotes para señalar observaciones que se encuentran fuera del rango intercuartílico. Según Tukey (1977) <span id="id3">[]</span>, estas herramientas permiten detectar de forma intuitiva aquellas observaciones que pueden influir de manera desproporcionada en el análisis.</p>
+<p>La identificación de valores atípicos se realiza comúnmente mediante técnicas gráficas, como los diagramas de caja, que utilizan los bigotes para señalar observaciones que se encuentran fuera del rango intercuartílico. Según Tukey (1977) <span id="id8">[]</span>, estas herramientas permiten detectar de forma intuitiva aquellas observaciones que pueden influir de manera desproporcionada en el análisis.</p>
 <p>Una vez identificados, es crucial evaluar el contexto de cada valor atípico: en algunos casos, se pueden corregir errores en la captura de datos, mientras que en otros puede ser más apropiado imputar o, en situaciones extremas, eliminar estos registros para no comprometer la robustez del análisis. Este tratamiento cuidadoso de los valores atípicos asegura que las conclusiones extraídas sean representativas y confiables para la toma de decisiones y el desarrollo de intervenciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8918,9 +9384,93 @@ if (outputEl) {{
 </body>
 </html></div></div>
 </div>
+</section>
+</section>
+</section>
+<section id="analisis-de-colinealidad-y-eliminacion-de-variables-redundantes">
+<h2><strong>Análisis de Colinealidad y Eliminación de Variables Redundantes</strong><a class="headerlink" href="#analisis-de-colinealidad-y-eliminacion-de-variables-redundantes" title="Link to this heading">#</a></h2>
+<p>En el contexto de la violencia de género, es fundamental garantizar que las variables utilizadas en el análisis no estén altamente correlacionadas entre sí, ya que esto puede generar problemas de <strong>multicolinealidad</strong>, lo que afecta la interpretación y la eficacia de los modelos predictivos. Para abordar este problema, se realizó un análisis exhaustivo de colinealidad y se eliminaron las variables redundantes, utilizando técnicas como el <strong>coeficiente de Cramér’s V</strong> para variables categóricas, la <strong>Correlación de Pearson</strong> y <strong>Correlación de Spearman</strong> (según la distribución de los datos) para variables numéricas y la <strong>información mutua</strong> para relaciones entre variables categóricas y numéricas. Sin embargo, es crucial revisar la naturaleza de las variables antes de eliminarlas, especialmente en un contexto tan sensible como la violencia de género, donde ciertas variables pueden ser fundamentales para el análisis.</p>
+<section id="proceso-de-eliminacion-de-variables-redundantes">
+<h3><strong>Proceso de Eliminación de Variables Redundantes</strong><a class="headerlink" href="#proceso-de-eliminacion-de-variables-redundantes" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Preparación de los Datos</strong>:</p>
+<ul class="simple">
+<li><p>Se excluyeron las columnas de tipo <strong>datetime</strong> y aquellas que contenían fechas (por ejemplo, <code class="docutils literal notranslate"><span class="pre">FEC_NOT</span></code>, <code class="docutils literal notranslate"><span class="pre">FEC_CON</span></code>, <code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>, <code class="docutils literal notranslate"><span class="pre">FEC_HOS</span></code>, <code class="docutils literal notranslate"><span class="pre">FEC_DEF</span></code>), ya que no son relevantes para el análisis de colinealidad.</p></li>
+<li><p>Las columnas categóricas (como <code class="docutils literal notranslate"><span class="pre">SEXO</span></code>, <code class="docutils literal notranslate"><span class="pre">TIP_SS</span></code>, <code class="docutils literal notranslate"><span class="pre">CBMTE</span></code>, <code class="docutils literal notranslate"><span class="pre">Categoria_Diferencia</span></code>) se convirtieron al tipo <code class="docutils literal notranslate"><span class="pre">category</span></code> para facilitar su análisis.</p></li>
+</ul>
+</li>
+<li><p><strong>Cálculo de Asociaciones</strong>:</p>
+<ul class="simple">
+<li><p>Se calculó una matriz de asociación que combina el coeficiente de <strong>Cramér’s V</strong> para variables categóricas, la correlación de <strong>Pearson</strong> para variables numéricas y la <strong>información mutua</strong> para relaciones entre variables categóricas y numéricas.</p></li>
+<li><p>Se utilizó un umbral de <strong>0.8</strong> para identificar pares de variables altamente asociadas.</p></li>
+</ul>
+</li>
+<li><p><strong>Eliminación Iterativa</strong>:</p>
+<ul class="simple">
+<li><p>Se eliminaron las variables con asociaciones superiores al umbral, priorizando aquellas con mayor redundancia en el dataset. Sin embargo, se realizó una revisión detallada de la naturaleza de cada variable para asegurar que no se eliminaran variables clave para el análisis.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="revision-de-las-variables-eliminadas-y-su-naturaleza">
+<h3><strong>Revisión de las Variables Eliminadas y su Naturaleza</strong><a class="headerlink" href="#revision-de-las-variables-eliminadas-y-su-naturaleza" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Estado_final_de_caso</span></code>:</p>
+<ul class="simple">
+<li><p><strong>Naturaleza</strong>: Esta variable indica la clasificación final del caso (por ejemplo, si el caso fue clasificado como sospechoso, probable, etc.).</p></li>
+<li><p><strong>Razón de eliminación</strong>: Alta asociación con <code class="docutils literal notranslate"><span class="pre">TIP_CAS</span></code> (clasificación inicial del caso).</p></li>
+<li><p><strong>Revisión</strong>: Tras analizar el formulario de origen, se confirmó que ambas variables (<code class="docutils literal notranslate"><span class="pre">Estado_final_de_caso</span></code> y <code class="docutils literal notranslate"><span class="pre">TIP_CAS</span></code>) tienen las mismas opciones (1: Sospechoso, 2: Probable, 3: Confirmado por laboratorio, 4: Confirmado por clínica, 5: Confirmado por nexo epidemiológico). Aunque se confirmó que en ambas, de 2012 a 2023, solo aparecen los valores 1 y 2. Además, se calculó el porcentaje de coincidencia entre ambas variables, el cual fue del <strong>100%</strong>. Esto indica que no hubo cambios entre el estado inicial y final del caso durante el período analizado.</p></li>
+<li><p><strong>Decisión</strong>: Se conserva <code class="docutils literal notranslate"><span class="pre">Estado_final_de_caso</span></code> como <code class="docutils literal notranslate"><span class="pre">Estado</span></code> y se elimina <code class="docutils literal notranslate"><span class="pre">TIP_CAS</span></code>, ya que ambas variables son idénticas en este contexto.</p></li>
+</ul>
+</li>
+<li><p>Variables Geográficas (<code class="docutils literal notranslate"><span class="pre">COD_MUN_N</span></code>, <code class="docutils literal notranslate"><span class="pre">COD_DPTO_O</span></code>, <code class="docutils literal notranslate"><span class="pre">COD_DPTO_N</span></code>, <code class="docutils literal notranslate"><span class="pre">COD_MUN_O</span></code>):</p>
+<ul class="simple">
+<li><p><strong>Naturaleza</strong>: Estas variables identifican el municipio y departamento de notificación y ocurrencia.</p></li>
+<li><p><strong>Razón de eliminación</strong>: Alta asociación entre variables geográficas (por ejemplo, <code class="docutils literal notranslate"><span class="pre">COD_MUN_N</span></code> con <code class="docutils literal notranslate"><span class="pre">COD_DPTO_N</span></code>).</p></li>
+<li><p><strong>Revisión</strong>: Según la literatura, la información geográfica es crucial para entender las dinámicas de la violencia de género, ya que permite identificar patrones regionales y focalizar intervenciones <span id="id9">[<a class="reference internal" href="#id22" title="Lori Heise and Claudia Garcia-Moreno. Violence by intimate partners. World report on violence and health, 1:87–121, 2002.">Heise and Garcia-Moreno, 2002</a>]</span>. Eliminar estas variables limitaría la capacidad de análisis a nivel municipal y departamental.</p></li>
+<li><p><strong>Decisión</strong>: Se conservan todas las variables geográficas para permitir un análisis más amplio y detallado.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Desenlace_Grave</span></code>:</p>
+<ul class="simple">
+<li><p><strong>Naturaleza</strong>: Esta variable indica si el caso tuvo un desenlace grave (hospitalización o muerte).</p></li>
+<li><p><strong>Razón de eliminación</strong>: Alta asociación con <code class="docutils literal notranslate"><span class="pre">PAC_HOS</span></code> (paciente hospitalizado).</p></li>
+<li><p><strong>Revisión</strong>: La variable <code class="docutils literal notranslate"><span class="pre">Desenlace_Grave</span></code> es la variable objetivo del estudio, creada específicamente para predecir desenlaces graves. Su alta asociación con <code class="docutils literal notranslate"><span class="pre">PAC_HOS</span></code> es esperada, ya que se construyó a partir de esta variable y <code class="docutils literal notranslate"><span class="pre">CON_FIN</span></code>.</p></li>
+<li><p><strong>Decisión</strong>: Se conserva <code class="docutils literal notranslate"><span class="pre">Desenlace_Grave</span></code> como variable objetivo.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP_GESTAN</span></code> (Gestante):</p>
+<ul class="simple">
+<li><p><strong>Naturaleza</strong>: Indica si la víctima pertenecía/pertenece al grupo poblacional gestante.</p></li>
+<li><p><strong>Razón de eliminación</strong>: Alta asociación con <code class="docutils literal notranslate"><span class="pre">sem_ges</span></code> (semanas de gestación).</p></li>
+<li><p><strong>Revisión</strong>: Aunque <code class="docutils literal notranslate"><span class="pre">sem_ges</span></code> proporciona información más detallada sobre el embarazo, <code class="docutils literal notranslate"><span class="pre">GP_GESTAN</span></code> es una variable binaria que facilita el agrupamiento y la visualización de datos.</p></li>
+<li><p><strong>Decisión</strong>: Se conserva <code class="docutils literal notranslate"><span class="pre">GP_GESTAN</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Categoria_Diferencia</span></code>:</p>
+<ul class="simple">
+<li><p><strong>Naturaleza</strong>: Clasifica la diferencia en días entre el inicio de síntomas y la consulta en categorías.</p></li>
+<li><p><strong>Razón de eliminación</strong>: Alta asociación con <code class="docutils literal notranslate"><span class="pre">DiferenciaDias</span></code> (diferencia en días).</p></li>
+<li><p><strong>Revisión</strong>: Dado que <code class="docutils literal notranslate"><span class="pre">Categoria_Diferencia</span></code> es una versión categorizada de <code class="docutils literal notranslate"><span class="pre">DiferenciaDias</span></code>, se considera redundante.</p></li>
+<li><p><strong>Decisión</strong>: Se elimina <code class="docutils literal notranslate"><span class="pre">Categoria_Diferencia</span></code> y se conserva <code class="docutils literal notranslate"><span class="pre">DiferenciaDias</span></code>, ya que esta última proporciona información más precisa.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CBMTE</span></code>:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Naturaleza:</strong> Esta variable indica la causa de muerte del paciente.</p></li>
+<li><p><strong>Razón de eliminación</strong> Alta asociación con <code class="docutils literal notranslate"><span class="pre">CON_FIN</span></code> (Condición final del paciente).</p></li>
+<li><p><strong>Revisión:</strong> Estas variables se relacionan altamente pues <code class="docutils literal notranslate"><span class="pre">CBMTE</span></code> tendrá un valor no nulo siempre que <code class="docutils literal notranslate"><span class="pre">CON_FIN</span></code> indique que el paciente murió.</p></li>
+<li><p><strong>Decisión:</strong> Se conserva CBMTE, pues el dato de causa de muerte es importante en el área de estudio.</p></li>
+</ul>
+</section>
+<section id="interpretacion-y-conclusion">
+<h3><strong>Interpretación y Conclusión</strong><a class="headerlink" href="#interpretacion-y-conclusion" title="Link to this heading">#</a></h3>
+<p>La eliminación de variables redundantes es un paso crítico para garantizar la precisión y eficacia de los modelos predictivos. Sin embargo, este proceso debe realizarse con un enfoque cuidadoso, especialmente en contextos sensibles como la violencia de género, donde ciertas variables pueden ser fundamentales para el análisis. En este estudio, se priorizó la conservación de variables clave como <code class="docutils literal notranslate"><span class="pre">EstadoFinal</span></code>, las variables geográficas y <code class="docutils literal notranslate"><span class="pre">Desenlace_Grave</span></code>, mientras se eliminaron aquellas que no aportaban información adicional o eran redundantes, como <code class="docutils literal notranslate"><span class="pre">TIP_CAS</span></code> y <code class="docutils literal notranslate"><span class="pre">Categoria_Diferencia</span></code>.</p>
+<p>Este enfoque asegura que los modelos predictivos se basen en información única y relevante, lo que es esencial para obtener resultados confiables y aplicables en la prevención, atención y erradicación de la violencia de género. Además, al mantener variables críticas como las geográficas, se permite un análisis más profundo y contextualizado, lo que es fundamental para diseñar intervenciones efectivas y políticas</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<h2 class="rubric" id="limitaciones-de-los-datos"><strong>Limitaciones de los Datos</strong></h2>
+<h5 class="rubric" id="limitaciones-de-los-datos"><strong>Limitaciones de los Datos</strong></h5>
 <p>Durante el análisis exploratorio se tuvo en cuenta que existen importantes limitaciones en la calidad y trazabilidad de la información en el contexto colombiano, las cuales no pudieron ser subsanadas debido a restricciones inherentes en el sistema de recolección de datos. Estas limitaciones incluyen:</p>
 <ol class="arabic simple">
 <li><p><strong>Falta de Integración Institucional:</strong> No existe un sistema unificado que permita cruzar información entre entidades como la Fiscalía, la Policía Nacional y Medicina Legal. Esto conlleva a la posible duplicidad de registros, ya que un mismo caso puede ser reportado por diferentes instituciones sin que se disponga de un mecanismo para consolidarlos.</p></li>
@@ -8928,14 +9478,25 @@ if (outputEl) {{
 <li><p><strong>Subregistro y Heterogeneidad en los Reportes:</strong> Las diferencias en los criterios de registro entre instituciones y regiones pueden dar lugar a subregistros o sesgos en la información. Algunos casos pueden no ser reportados en absoluto, mientras que otros pueden duplicarse, afectando la estandarización y la calidad global de los datos.</p></li>
 </ol>
 <p>Estas limitaciones fueron consideradas durante todo el proceso del análisis exploratorio de datos (EDA), y se manejaron en función de lo disponible, sin poder implementar correcciones estructurales.</p>
-<h3 class="rubric" id="recomendacion-a-futuro"><strong>Recomendación a Futuro:</strong></h3>
+<h5 class="rubric" id="recomendacion-a-futuro"><strong>Recomendación a Futuro:</strong></h5>
 <p>Para futuros estudios, se recomienda el desarrollo e implementación de un sistema centralizado de trazabilidad que permita integrar y depurar los registros provenientes de las diversas entidades involucradas. Tal sistema facilitaría la identificación de duplicidades y posibilitaría el seguimiento longitudinal de los casos, lo cual mejoraría significativamente la confiabilidad y utilidad de los datos para la toma de decisiones y la formulación de políticas públicas.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Aunque podría considerarse eliminar los casos en los que la fecha de notificación y la de consulta superan los 90 días, en este estudio se han mantenido dichos registros, ya que representan un porcentaje reducido del total y reflejan la complejidad del sistema de reporte. Existen múltiples fuentes de notificación (Medicina Legal, Policía, ICBF, entre otras) que no se encuentran plenamente articuladas. Por ejemplo, un caso puede ser reportado inicialmente ante la Policía sin que la víctima requiera atención médica inmediata; sin embargo, posteriormente, al solicitarse una valoración por Medicina Legal, se le exige la historia clínica, lo que impulsa a la víctima a acudir a una institución de salud mucho tiempo después del hecho. Este y otros escenarios similares justifican la permanencia de registros con diferencias de más de 90 días, evitando subestimar la magnitud de la violencia de género y respetando la diversidad de rutas y tiempos de atención que se dan en la práctica.</p>
 </div>
-</section>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<h5 class="rubric" id="preprocesamiento-de-los-datos"><strong>Preprocesamiento de los datos</strong></h5>
+<p>Durante la fase de preprocesamiento se realizaron transformaciones clave para asegurar que los datos estuvieran en un formato adecuado para los algoritmos de aprendizaje automático:</p>
+<ul class="simple">
+<li><p>Se <strong>ajustaron los tipos de datos</strong> de todas las variables, asegurando que cada una correspondiera correctamente a su naturaleza (por ejemplo, categóricas, numéricas o booleanas).</p></li>
+<li><p>Las <strong>variables de fecha</strong> no fueron utilizadas directamente. En su lugar, se calcularon <strong>diferencias temporales significativas</strong> entre eventos clave, como el inicio de síntomas, la consulta médica y la notificación oficial. Esto permitió extraer información temporal relevante sin introducir ruido asociado a fechas absolutas.</p></li>
+<li><p>La variable <code class="docutils literal notranslate"><span class="pre">TIP_SS</span></code>, que representa el <strong>régimen de salud de la víctima</strong>, fue transformada mediante <strong>codificación one-hot</strong> (<code class="docutils literal notranslate"><span class="pre">get_dummies</span></code>) para preservar su carácter categórico sin imponer un orden artificial.</p></li>
+<li><p>Se eliminaron columnas irrelevantes o redundantes, quedando una base final <strong>con 508,693 registros y 41 variables</strong> predictoras que capturan adecuadamente los aspectos relevantes del fenómeno.</p></li>
+</ul>
+<p>Este conjunto de pasos permitió construir una matriz de características estructurada, limpia y lista para ser utilizada en los distintos modelos de clasificación.</p>
+</div>
 </section>
 </section>
 <section id="conclusiones">
@@ -8948,14 +9509,35 @@ if (outputEl) {{
 </section>
 <section id="referencias">
 <h2><strong>Referencias</strong><a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id4">
+<div class="docutils container" id="id10">
 <div role="list" class="citation-list">
-<div class="citation" id="id8" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<div class="citation" id="id20" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">1</a><span class="fn-bracket">]</span></span>
+<p>Jacquelyn C Campbell, Daniel Webster, Jane Koziol-McLain, Carolyn R Block, Doris W Campbell, Mary Ann Curry, Faye Gary, Nancy Glass, Judith McFarlane, Carolyn Sachs, and others. Risk factors for femicide in abusive relationships: results from a multisite case control study. <em>American Journal of Public Health</em>, 93(7):1089–1097, 2003.</p>
+</div>
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
+<p>Claudia García-Moreno, Henrica AFM Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Who multi-country study on women’s health and domestic violence against women. <em>World Health Organization</em>, 2005. URL: <a class="reference external" href="https://www.who.int">https://www.who.int</a>.</p>
+</div>
+<div class="citation" id="id22" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id7">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
+<p>Lori Heise and Claudia Garcia-Moreno. Violence by intimate partners. <em>World report on violence and health</em>, 1:87–121, 2002.</p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
+<p>Roderick J. A. Little and Donald B. Rubin. <em>Statistical Analysis with Missing Data</em>. Wiley, 2019.</p>
+</div>
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
+<p>Donald B. Rubin. Inference and missing data. <em>Biometrika</em>, 63(3):581–592, 1976.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">6</a><span class="fn-bracket">]</span></span>
 <p>John W. Tukey. <em>Exploratory Data Analysis</em>. Addison-Wesley, 1977.</p>
 </div>
-<div class="citation" id="id5" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<div class="citation" id="id11" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">7</a><span class="fn-bracket">]</span></span>
 <p>Hadley Wickham and Garrett Grolemund. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. O'Reilly Media, 2017.</p>
 </div>
 </div>
@@ -8999,8 +9581,17 @@ if (outputEl) {{
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>Introducción</strong></p>
+        <p class="prev-next-title"><strong>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</strong></p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Modelado.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Modelos de Clasificación</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -9080,6 +9671,12 @@ if (outputEl) {{
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analsis-de-atipicos-en-fecha-de-inicio-de-sintomas-ini-sin"><strong>Análsis de Atípicos en Fecha de Inicio de Síntomas (<code class="docutils literal notranslate"><span class="pre">INI_SIN</span></code>)</strong></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-colinealidad-y-eliminacion-de-variables-redundantes"><strong>Análisis de Colinealidad y Eliminación de Variables Redundantes</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proceso-de-eliminacion-de-variables-redundantes"><strong>Proceso de Eliminación de Variables Redundantes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-de-las-variables-eliminadas-y-su-naturaleza"><strong>Revisión de las Variables Eliminadas y su Naturaleza</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-y-conclusion"><strong>Interpretación y Conclusión</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>Conclusiones</strong></a></li>
