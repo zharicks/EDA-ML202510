@@ -1,6 +1,8 @@
-# **Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)**
+# **Contextualización**
 
-## **Contextualización de los datos**
+## **Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)**
+
+### **Contextualización de los datos**
 
 El conjunto de datos utilizado en este proyecto proviene del Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, una plataforma que recopila y sistematiza información sobre eventos de interés en salud pública, incluidos los casos de violencia de género. Los datos abarcan el período comprendido entre 2018 y 2023 y contienen variables demográficas, clínicas y contextuales relacionadas con las víctimas, los agresores y los eventos de violencia. Entre las variables clave se encuentran la edad, el género, la etnia, el nivel educativo, el tipo de violencia reportada, la relación entre la víctima y el agresor, y el desenlace del caso (hospitalización, muerte, entre otros).
 
