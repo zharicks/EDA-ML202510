@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contextualización &#8212; Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</title>
+    <title>Conclusiones y discusiones &#8212; Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</title>
   
   
   
@@ -57,12 +57,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ConclusionesDiscusiones';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Análisis Exploratorio de Datos" href="EDA.html" />
+    <link rel="prev" title="Modelos Alternativos frente a XGBoost" href="ModeloOriginal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +141,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -176,17 +172,17 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Contextualización
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="EDA.html"><strong>Análisis Exploratorio de Datos</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modelado.html"><strong>Modelos de Clasificación</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="ModeloOriginal.html"><strong>Modelos Alternativos frente a XGBoost</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ConclusionesDiscusiones.html"><strong>Conclusiones y discusiones</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Conclusiones y discusiones</strong></a></li>
 </ul>
 
     </div>
@@ -258,7 +254,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FConclusionesDiscusiones.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +284,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/ConclusionesDiscusiones.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,7 +294,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -372,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Contextualización</h1>
+    <h1>Conclusiones y discusiones</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,10 +378,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-para-la-prevencion-de-desenlaces-criticos-en-violencia-de-genero-un-estudio-aplicado-a-datos-colombianos-20182023"><strong>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>Conclusiones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discusiones"><strong>Discusiones</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -397,36 +391,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="contextualizacion">
-<h1><strong>Contextualización</strong><a class="headerlink" href="#contextualizacion" title="Link to this heading">#</a></h1>
-<section id="machine-learning-para-la-prevencion-de-desenlaces-criticos-en-violencia-de-genero-un-estudio-aplicado-a-datos-colombianos-20182023">
-<h2><strong>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</strong><a class="headerlink" href="#machine-learning-para-la-prevencion-de-desenlaces-criticos-en-violencia-de-genero-un-estudio-aplicado-a-datos-colombianos-20182023" title="Link to this heading">#</a></h2>
-<section id="contextualizacion-de-los-datos">
-<h3><strong>Contextualización de los datos</strong><a class="headerlink" href="#contextualizacion-de-los-datos" title="Link to this heading">#</a></h3>
-<p>El conjunto de datos utilizado en este proyecto proviene del Sistema Nacional de Vigilancia en Salud Pública (Sivigila) de Colombia, una plataforma que recopila y sistematiza información sobre eventos de interés en salud pública, incluidos los casos de violencia de género. Los datos abarcan el período comprendido entre 2018 y 2023 y contienen variables demográficas, clínicas y contextuales relacionadas con las víctimas, los agresores y los eventos de violencia. Entre las variables clave se encuentran la edad, el género, la etnia, el nivel educativo, el tipo de violencia reportada, la relación entre la víctima y el agresor, y el desenlace del caso (hospitalización, muerte, entre otros).</p>
-<p>La violencia de género es un fenómeno multidimensional que afecta desproporcionadamente a las mujeres en Colombia. Según un informe de ONU Mujeres (2020), el 35% de las mujeres en el país ha sufrido algún tipo de violencia física o sexual por parte de su pareja, y el 70% ha experimentado violencia psicológica en algún momento de su vida <span id="id1">[<a class="reference internal" href="#id9" title="ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: https://www.unwomen.org.">Mujeres, 2020</a>]</span>. Estos datos resaltan la necesidad de abordar este problema desde una perspectiva integral, utilizando herramientas de análisis de datos para identificar factores de riesgo y diseñar intervenciones efectivas.</p>
-<p>El uso de datos de Sivigila para este proyecto es particularmente relevante, ya que este sistema es una de las principales fuentes de información sobre violencia de género en Colombia. Sin embargo, es importante reconocer las limitaciones inherentes a los datos, como la posible subnotificación de casos debido a barreras culturales, sociales o institucionales. Según un estudio de García-Moreno et al. (2015), la subnotificación de la violencia de género es un problema global, con tasas que pueden superar el 50% en algunos contextos <span id="id2">[<a class="reference internal" href="#id12" title="Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. Revista de Salud Pública Global, 20(3):123–135, 2015.">García-Moreno, Jansen, Ellsberg, Heise, and Watts, 2015</a>]</span>. Estas consideraciones deben tenerse en cuenta durante el análisis para evitar conclusiones sesgadas o erróneas.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Descripción del proyecto:</strong><br />
-Este proyecto aplica técnicas de Machine Learning para predecir desenlaces graves en casos de violencia de género registrados en Colombia entre 2018 y 2023. Se comparan múltiples algoritmos (árboles, ensambles, SVM, Naive Bayes, etc.) utilizando métricas relevantes como F1-score macro, AUC macro y tiempo de entrenamiento, con el fin de proponer soluciones eficientes para contextos sensibles y de alta prioridad social.</p>
-</div>
-<div class="docutils container" id="id3">
-<div role="list" class="citation-list">
-<div class="citation" id="id12" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
-<p>Claudia García-Moreno, Henrica A. F. M. Jansen, Mary Ellsberg, Lori Heise, and Charlotte Watts. Subnotificación de la violencia de género: un problema global. <em>Revista de Salud Pública Global</em>, 20(3):123–135, 2015.</p>
-</div>
-<div class="citation" id="id9" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
-<p>ONU Mujeres. El costo de la violencia contra las mujeres en colombia. 2020. URL: <a class="reference external" href="https://www.unwomen.org">https://www.unwomen.org</a>.</p>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="conclusiones-y-discusiones">
+<h1><strong>Conclusiones y discusiones</strong><a class="headerlink" href="#conclusiones-y-discusiones" title="Link to this heading">#</a></h1>
+<section id="conclusiones">
+<h2><strong>Conclusiones</strong><a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>Los resultados obtenidos a lo largo de este apartado evidencian que la combinación de un preprocesamiento cuidadoso, la validación cruzada estratificada y un enfoque de balanceo de clases (SMOTE) permite construir modelos con alta capacidad de discriminación en un contexto multiclase marcado por el desbalance.</p>
+<p>La comparación global de once métodos reveló que XGBoost (clásico y optimizado) y Random Forest constituyen los enfoques más robustos, alcanzando los mejores valores de F1-score (macro) y AUC (macro). Por su parte, KNN y las variantes de SVM (con kernels lineales y aproximaciones RBF) ofrecieron un rendimiento satisfactorio, aunque en general pordebajo de los ensambles y métodos de boosting. Modelos más simples, como Naive Bayes o Regresión Logística, encontraron limitaciones para capturar la complejidad intrínseca del fenómeno, en especial la detección de desenlaces graves (hospitalización o muerte).</p>
+<p>Adicionalmente, se amplió la comparativa incluyendo métodos avanzados como Balanced Random Forest, StackingClassifier, SMOTEBoost y SMOTE + AdaBoost (RandomizedSearchCV). Para profundizar en la identificación de casos de riesgo, se redefinió la variable objetivo hacia una clasificación binaria (<code class="docutils literal notranslate"><span class="pre">Victima_Peligro</span></code>) y se repitió el entrenamiento con SMOTE sobre cada fold. Tras esta transformación y el reentrenamiento de XGBoost, Random Forest y los nuevos modelos, ninguno logró superar el F1-score macro alcanzado originalmente por XGBoost clásico y Random Forest.</p>
+<p>En el conjunto de modelos evaluados, XGBoost clásico sobresale al equilibrar un excelente poder predictivo con un tiempo de entrenamiento razonable, mientras que la versión optimizada reduce el tiempo de cómputo sin sacrificar rendimiento. Random Forest, por su parte, se presenta como una alternativa sólida y más interpretable, lo que podría facilitar su adopción en
+ámbitos de salud pública.</p>
+<p>Estos hallazgos confirman la pertinencia de combinar técnicas de aprendizaje supervisado con un balanceo adecuado de clases en escenarios de violencia de género, donde la minoría de casos más críticos exige especial atención. El paso siguiente consiste en afinar la integración de los modelos en herramientas de apoyo a la toma de decisiones, orientadas a priorizar la atención y los recursos en casos de mayor vulnerabilidad.</p>
 </section>
+<section id="discusiones">
+<h2><strong>Discusiones</strong><a class="headerlink" href="#discusiones" title="Link to this heading">#</a></h2>
+<p>En este proyecto, por razones de confidencialidad asociadas a la base de datos SIVIGILA, únicamente se empleó la información contenida en la primera hoja del formulario original. Si bien los modelos alcanzaron un desempeño aceptable con
+las variables disponibles, la persistencia de un tamaño muy reducido de la clase minoritaria sugiere la necesidad de enriquecer el conjunto de datos para mejorar la discriminación de víctimas en riesgo. En particular, la incorporación de las variables de la segunda hoja del formulario—que incluyen datos del agresor (edad, relación con la víctima, antecedentes), modalidad de violencia (física, sexual, psicológica), lugar del suceso, tipo y gravedad
+de las lesiones, tiempo de intervención, entre otros—podría aportar información crítica para elevar el F1-score macro. Estos atributos adicionales permiten:</p>
+<ul class="simple">
+<li><p>Caracterizar con mayor detalle el contexto del incidente.</p></li>
+<li><p>Identificar patrones de riesgo asociados a perfiles específicos de agresores.</p></li>
+<li><p>Discriminar mejor entre casos extremos (muerte) y hospitalización leve.</p></li>
+<li><p>Enriquecer las señales para los algoritmos de aprendizaje
+supervisado.</p></li>
+</ul>
+<p>Por tanto, una vez dispongamos de la segunda hoja de datos bajo los protocolos de confidencialidad, se recomienda rehacer el preprocesamiento y volver a entrenar los modelos—especialmente XGBoost y Random Forest—para evaluar la ganancia en métricas de interés. El formulario completo podrá consultarse en el
+siguiente enlace de Drive: <a class="reference external" href="https://drive.google.com/drive/u/4/folders/1imhHHTIQ3i7Nc5ts_eybZhXhFMrWMQKr">Formulario completo</a>.</p>
+<p>Estos pasos futuros permitirán fortalecer la capacidad predictiva del sistema y ofrecer diagnósticos más precisos para la
+priorización de recursos en salud pública.</p>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -459,14 +451,14 @@ Este proyecto aplica técnicas de Machine Learning para predecir desenlaces grav
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="EDA.html"
-       title="next page">
+    <a class="left-prev"
+       href="ModeloOriginal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Análisis Exploratorio de Datos</strong></p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Modelos Alternativos frente a XGBoost</strong></p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -484,10 +476,8 @@ Este proyecto aplica técnicas de Machine Learning para predecir desenlaces grav
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-para-la-prevencion-de-desenlaces-criticos-en-violencia-de-genero-un-estudio-aplicado-a-datos-colombianos-20182023"><strong>Machine Learning para la prevención de desenlaces críticos en violencia de género: Un estudio aplicado a datos colombianos (2018–2023)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-de-los-datos"><strong>Contextualización de los datos</strong></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>Conclusiones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discusiones"><strong>Discusiones</strong></a></li>
 </ul>
   </nav></div>
 
